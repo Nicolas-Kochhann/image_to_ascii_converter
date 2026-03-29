@@ -1,13 +1,16 @@
 use image;
-// use std::env;
+use std::env;
+use std::path::Path;
 use crate::processor::{compress, image_to_ascii};
 
 pub mod processor;
 
 fn main(){
-    // let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().collect();
 
-    let image = match image::open("placeholders/mario.png"){
+    let path = Path::new(args.last().expect("You need a image path as argument to execute de program"));
+
+    let image = match image::open(path){
         Ok(img) => img,
         Err(e) => {
             println!("Open image error: {}", e);
@@ -22,5 +25,4 @@ fn main(){
     let ascii_image = image_to_ascii(& image_buffer);
 
     print!("{}", ascii_image);
-    println!("Dimensions {}x{}", image_buffer.width(), image_buffer.height());
 }

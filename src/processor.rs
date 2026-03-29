@@ -1,4 +1,4 @@
-use image::{ImageBuffer, Luma, imageops::{self, FilterType::{Lanczos3}}};
+use image::{ImageBuffer, Luma, imageops::{self, FilterType::{Nearest}}};
 
 const CHARACTERS: [char; 69] = [
     ' ', '.', '`', '^', '"', ',', ':', ';', 'I', 'l', '!', 'i', '>', '<', '~', '+', '_', '-', '?', ']', 
@@ -39,7 +39,7 @@ pub fn compress(image: &Image, nwidth: u32, nheight: u32) -> Image
     let real_width = nwidth as f64 * aspect_ratio;
     let real_width = real_width as u32;
 
-    let new_image = imageops::resize(image, real_width, nheight, Lanczos3);
+    let new_image = imageops::resize(image, real_width, nheight, Nearest);
 
     new_image
 }
