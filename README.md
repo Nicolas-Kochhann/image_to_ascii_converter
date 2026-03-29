@@ -7,7 +7,6 @@ A Rust-based command-line application that converts images to ASCII art represen
 - Converts any image format supported by the `image` crate to ASCII art
 - Automatic grayscale conversion
 - Image resizing with aspect ratio preservation
-- Customizable output dimensions
 - 69-character gradient for brightness representation
 
 ## Installation
@@ -82,15 +81,3 @@ The application uses a 69-character gradient ranging from darkest to brightest:
 ## Dependencies
 
 - `image = "0.25.10"`: For image loading and processing
-
-## License
-
-This project is open source. See the LICENSE file for details.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
